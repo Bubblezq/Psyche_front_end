@@ -86,15 +86,17 @@ module.exports = {
   },
 
   devServer: {
-    proxy: {
-      "/api": { //自定义
-        target: "http://localhost:8080", //这里可以跟随项目实际部署服务器来
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-    }
+    // development server port 8000
+    port: 8000
+    // proxy: {
+    //   "/api": { //自定义
+    //     target: "http://localhost:8080", //这里可以跟随项目实际部署服务器来
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/api': ''
+    //     }
+    //   }
+    // }
   },
 
   // disable source map in production

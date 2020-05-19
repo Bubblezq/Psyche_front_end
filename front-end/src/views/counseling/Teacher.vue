@@ -68,7 +68,7 @@ export default {
   methods: {
     onChange(current){
         this.current=current;
-        getTeacher({page:this.current-1}).then(response => {
+        getTeacher(this.current).then(response => {
         console.log('sssss',response.data.teacher)
         this.allData = response.data
         this.loading = false
@@ -83,7 +83,7 @@ export default {
           //   this.loading = false
           //   pageData = this.data
           // })
-    getTeacher({page:this.current-1}).then(response => {
+    getTeacher(this.current).then(response => {
         this.allData = response.data
         this.loading = false
         this.data = this.allData.teacher

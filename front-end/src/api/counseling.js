@@ -1,10 +1,9 @@
 import { axios } from '@/utils/request'
-import Qs from 'qs'
 
 const api = {
-  cancel: '/counseling/cancel',
-  myReserve: '/counseling/myReservation',
-  schedule: '/counseling/reserve',
+  cancel: '/Counseling/cancel',
+  myReserve: 'Counseling/myReserve',
+  schedule: 'Counseling/schedule',
 }
 
 export default api
@@ -13,9 +12,9 @@ export function getMyReserve (data) {
   return axios({
     url: api.myReserve,
     method: 'post',
-    data: Qs.stringify(data),
+    data: data,
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json;charset=UTF-8'
     }
   })
 }
@@ -24,20 +23,20 @@ export function cancelAppointment (data) {
   return axios({
     url: api.cancel,
     method: 'post',
-    data: Qs.stringify(data),
+    data: data,
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json;charset=UTF-8'
     }
   })
 }
 
-export function chooseTime (data) {
+export function chooseTime (parameter) {
   return axios({
     url: api.schedule,
     method: 'post',
-    data: Qs.stringify(data),
+    data: parameter,
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
+      'Content-Type': 'application/json;charset=UTF-8'
     }
   })
 }
