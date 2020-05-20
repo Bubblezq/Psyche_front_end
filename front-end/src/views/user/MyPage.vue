@@ -117,7 +117,7 @@
                 <div slot="description">
                   <ellipsis :length="70">{{ item.content }}</ellipsis>
                 </div>
-                </br>
+                <br/>
                 <div slot="description">
                   <ellipsis :length="70">{{ item.sendTime }}</ellipsis>
                 </div>
@@ -132,7 +132,7 @@
           <a-pagination @change="onChange1" :current="current" :total="(totalPage1+1)*10" />
         </div>
       </template>
-      <template v-else="noTitleKey === '收藏'">
+      <template v-if="noTitleKey === '收藏'">
         <a-list :dataSource="likeData">
           <a-list-item>
             <a-card :bordered="false" style="width:100%">
@@ -149,7 +149,6 @@
           <a-pagination @change="onChange2" :current="current" :total="(totalPage2+1)*10" />
         </div>
       </template>
-       </a-card>
        </a-card>
       </a-col>
     </a-row>

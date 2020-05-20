@@ -20,7 +20,7 @@
       <a-row :gutter="16">
         <a-card>
           <a-col :span="2">
-            </br></br>
+            <br/><br/>
             <a-row>
               <p>10:00~11:00</P>
             </a-row>
@@ -36,8 +36,8 @@
           </a-col>
           <a-col :span="10">
             <div>
-              <a-row><a-col :span="2">一</a-col><a-col :span="2">二</a-col><a-col :span="2">三</a-col><a-col :span="2">四</a-col><a-col :span="2">五</a-col></p></a-row>
-              </br>
+              <a-row><a-col :span="2">一</a-col><a-col :span="2">二</a-col><a-col :span="2">三</a-col><a-col :span="2">四</a-col><a-col :span="2">五</a-col></a-row>
+              <br/>
               <a-radio-group @change="onChange"  buttonStyle="solid" style="margin-left:10px">
                 <a-row>
                   <a-radio-button value="1" :disabled="disabled1"></a-radio-button>

@@ -1,7 +1,6 @@
 /* eslint-disable */
-import {UserLayout, BasicLayout, RouteView, BlankLayout, PageView} from '@/layouts'
-import {bxAnaalyse, codeAPI, chat} from '@/core/icons'
-import {addAccessoryInWarehouse} from '@/api/accessory'
+import {UserLayout, BasicLayout, RouteView, BlankLayout} from '@/layouts'
+import {chat} from '@/core/icons'
 
 export const asyncRouterMap = [
 {
@@ -17,6 +16,7 @@ export const asyncRouterMap = [
       meta: {title: '首页', keepAlive: true, icon: 'home'},
       component: () => import( '@/views/user/Homepage' ),
     },
+
 
     //科普文章
     {
@@ -38,6 +38,7 @@ export const asyncRouterMap = [
       }
     },
 
+
     //通知栏
     {
       path: '/note/list',
@@ -58,9 +59,8 @@ export const asyncRouterMap = [
       }
     },
 
+
     //心理测试
-
-
     {
       path: '/psytest/list',
       name: 'TestList',
@@ -78,8 +78,6 @@ export const asyncRouterMap = [
         title: '测试详情', keepAlive: false, icon: 'drag'
       }
     },
-
-
 
 
     //树洞
@@ -109,62 +107,9 @@ export const asyncRouterMap = [
         }
       ]
     },
-    // equipment
-    {
-      path: '/equipment',
-      name: 'equipment',
-      hidden: true,
-      redirect: '/equipment/preview',
-      meta: {title: '器材', keepAlive: true, icon: 'sliders'},
-      component: RouteView,
-      children: [
-        {
-          path: '/equipment/preview',
-          name: 'EquipPreview',
-          component: () => import( '@/views/equipment/EquipmentPreview' ),
-          meta: {
-            title: '仓储器材', keepAlive: false, icon: 'database'
-          }
-        },
-        {
-          path: '/equipment/using:pageNo([1-9]\\d*)?',
-          name: 'EquipUsing',
-          component: () => import( '@/views/equipment/EquipmentUsing' ),
-          meta: {
-            title: '在用器材', keepAlive: false, icon: 'api'
-          }
-        },
-        {
-          path: '/equipment/detail/:id',
-          name: 'EquipDetail',
-          hidden: true,
-          component: () => import( '@/views/equipment/EquipInfo' ),
-          meta: {
-            title: '器材详情', keepAlive: false, icon: 'bars'
-          },
-        },
-      ]
-    },
-    // accessory
-    {
-      path: '/accessory',
-      name: 'accessory',
-      hidden: true,
-      meta: {title: '配件', keepAlive: true, icon: 'tool'},
-      component: RouteView,
-      children: [
-        {
-          path: '/accessory/Accessory',
-          name: 'AccessoryInWarehouse',
-          component: () => import( '@/views/accessory/Accessory' ),
-          meta: {
-            title: '配件管理', keepAlive: false, icon: 'bars'
-          }
-        }
-      ]
-    },
 
-    // counseling
+
+    // 线上预约
     {
       path: '/counseling',
       name: 'counseling',
@@ -202,29 +147,6 @@ export const asyncRouterMap = [
       name: 'myPage',
       component: () => import( '@/views/user/MyPage' ),
       meta: {title: '个人中心', keepAlive: true, icon: 'user'}
-    },
-
-    {
-      path: '/server',
-      name: 'server',
-      hidden: true,
-      redirect: '/server/KibanaMonitor',
-      component: RouteView,
-      meta: {title: '服务器', keepAlive: true, icon: bxAnaalyse},
-      children: [
-        {
-          path: '/server/KibanaMonitor',
-          name: 'KibanaMonitor',
-          component: () => import( '@/views/server/KibanaMonitor' ),
-          meta: {title: '监控', keepAlive: false, icon: bxAnaalyse}
-        },
-        {
-          path: '/server/Swagger',
-          name: 'Swagger',
-          component: () => import( '@/views/server/Swagger' ),
-          meta: {title: 'API', keepAlive: false, icon: codeAPI}
-        },
-      ]
     },
 
     //聊天
