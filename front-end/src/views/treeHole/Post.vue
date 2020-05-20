@@ -197,16 +197,16 @@ import { getPost, sendTreehole, deleteTreehole} from '@/api/Treehole'
        },
        onChange1(current) {
            this.current = current;
-           getPost({page:this.current-1}).then((response)=>{
+           getPost(this.current).then((response)=>{
                let data=response.data;
                this.allData=response.data;
                console.log(this.allData);
-               let obj=Object.assign(data.list,data.headPortrait);
-               console.log(obj);
-               this.Data=this.allData.list; //当前页的树洞信息
-               this.Data.headPortrait=data.headPotrait;
-               console.log("head:")
-               this.totalPage=this.allData.total //总页数
+              /* let obj=Object.assign(data.list,data.headPortrait);
+               console.log(obj);*/
+               this.Data=this.allData.post; //当前页的树洞信息
+               /*this.Data.headPortrait=data.headPotrait;
+               console.log("head:")*/
+               this.totalPage=this.allData.totalPage //总页数
            })
        },
        handleAdd () {
@@ -280,20 +280,20 @@ import { getPost, sendTreehole, deleteTreehole} from '@/api/Treehole'
     },
     mounted() {
       console.log('vuex', this.userInfo)
-      getPost({page:this.current-1}).then((response)=>{
+      getPost(this.current).then((response)=>{
         let data=response.data;
         this.allData=response.data;
         console.log(this.allData);
         //console.log(data.list);
-        let obj=Object.assign(data.list,data.headPortrait);
-        console.log(obj);
+       /* let obj=Object.assign(data.list,data.headPortrait);
+        console.log(obj);*/
 
 
-        this.Data=this.allData.list; //当前页的树洞信息
-        this.Data.headPortrait=data.headPotrait;
-        console.log("head:")
+        this.Data=this.allData.post; //当前页的树洞信息
+       /* this.Data.headPortrait=data.headPotrait;
+        console.log("head:")*/
         //console.log(data.headPotrait)
-        this.totalPage=this.allData.total //总页数
+        this.totalPage=this.allData.totalPage //总页数
         //console.log(this.totalPage);
         //console.log(this.Data);
       })
